@@ -1,0 +1,23 @@
+Console.WriteLine("Lütfen bir sayı giriniz.");
+int sayi = Convert.ToInt32(Console.ReadLine());
+if (sayi > 10) 
+{
+Console.WriteLine("Sayı 10'dan büyüktür.");
+}
+else if (sayi == 10)
+{
+    Console.WriteLine("Sayı 10'a eşittir.");
+}
+else
+{
+    Console.WriteLine("Sayı 10'dan küçüktür.");
+}
+// Tek mi çift mi kontrolü
+if (sayi % 2 == 0) // sayi % 2 == 0 ise sayi çift sayıdır.
+{
+    Console.WriteLine("Sayı çift sayıdır");
+}
+else
+{
+    Console.WriteLine("Sayı tek sayıdır");
+}
