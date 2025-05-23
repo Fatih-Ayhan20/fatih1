@@ -39,6 +39,6 @@ for (int i = 0; i < 120; i++)
         tek++;
     }
 }
-Console.WriteLine("0 ile 120 arasındaki çift sayıların sayısı = " + çift);
-Console.WriteLine("0 ile 120 arasındaki tek sayıların sayısı = " + tek);
+Console.WriteLine("0 ile 120 arasındaki çift sayıların toplamı = " + çift);
+Console.WriteLine("0 ile 120 arasındaki tek sayıların toplamı = " + tek);
 
