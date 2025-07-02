@@ -1,0 +1,39 @@
+﻿namespace MVC_projesi.Views
+{
+    public class Index
+    {
+
+@model YourProjectName.ViewModels.CustomerOrderViewModel
+
+<h2>Müşteri Bilgileri</h2>
+<table class="table">
+    <tr><th>ID</th><td>@Model.Customer.Id</td></tr>
+    <tr><th>Ad</th><td>@Model.Customer.FirstName</td></tr>
+    <tr><th>Soyad</th><td>@Model.Customer.LastName</td></tr>
+    <tr><th>Email</th><td>@Model.Customer.Email</td></tr>
+</table>
+
+<h2>Siparişler</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sipariş ID</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.ProductName</td>
+                <td>@order.Price.ToString("C")</td>
+                <td>@order.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>
+    }
+}
