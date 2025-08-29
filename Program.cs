@@ -1,22 +1,57 @@
-﻿Console.WriteLine("Rüya manavına hoşgeldiniz!");
-Console.WriteLine("Lütfen bir meyve seçiniz:");
-Console.WriteLine("1. Elma:2 TL");
-Console.WriteLine("2. Armut:3 TL");
-Console.WriteLine("3. Çilek: 2 TL");
-Console.Write("Seçiminiz: ");
-string meyve = Console.ReadLine();
-switch (meyve.ToLower())
-{ 
- case "elma":
-    Console.WriteLine("Elma seçtiniz, 2 TL ödeyin.");
-    break;
-case "armut":
-    Console.WriteLine("Armut seçtiniz,3 TL ödeyin.");
-    break;
-case "çilek":
-    Console.WriteLine("Çilek seçtiniz,2 TL ödeyin.");
-    break;
-    default:
-    Console.WriteLine("Geçersiz meyve seçimi.");
-    break;
+﻿using System;
+
+class Araba
+{
+    // Otomobil özellikleri
+    public string Marka { get; set; }
+    public string Model { get; set; }
+    public string Renk { get; set; }
+
+    private int _kapiSayisi; // kapsüllenmiş alan
+
+    // Property ile kapsülleme
+    public int KapiSayisi
+    {
+        get { return _kapiSayisi; }
+        set
+        {
+            if (value == 2 || value == 4)
+            {
+                _kapiSayisi = value;
+            }
+            else
+            {
+                Console.WriteLine("⚠ Geçersiz kapı sayısı! Sadece 2 veya 4 olabilir.");
+                _kapiSayisi = -1;
+            }
+        }
+    }
+
+    // Constructor (kurucu metot)
+    public Araba(string marka, string model, string renk, int kapiSayisi)
+    {
+        Marka = marka;
+        Model = model;
+        Renk = renk;
+        KapiSayisi = kapiSayisi; // burada set bloğu çalışacak
+    }
+
+    public void BilgiYazdir()
+    {
+        Console.WriteLine($"Marka: {Marka}, Model: {Model}, Renk: {Renk}, Kapı Sayısı: {KapiSayisi}");
+    }
+}
+
+partial class Program
+{
+    static void Main()
+    {
+        // Geçerli kapı sayısı
+        Araba araba1 = new Araba("BMW", "320i", "Siyah", 4);
+        araba1.BilgiYazdir();
+
+        // Geçersiz kapı sayısı
+        Araba araba2 = new Araba("Mercedes", "A180", "Beyaz", 3);
+        araba2.BilgiYazdir();
+    }
 }
